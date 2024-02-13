@@ -1,0 +1,5 @@
+<app-stage-1
+    [teslaModelInformation]="teslaModelInformation$ | async"
+    [step1FormState]="step1FormState$ | async"
+    (updateStep1Form)="onUpdateStep1Form($event)"
+/>

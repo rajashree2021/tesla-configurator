@@ -1,0 +1,55 @@
+<h1>Stage 3: Summary</h1>
+
+@if (step1FormState?.currentModel) {
+    <div class="stage-3-container">
+        <h2>Your Tesla {{ step1FormState?.currentModel }}</h2>
+
+        <table>
+            <tbody>
+                @if (step2FormState?.currentConfig) {
+                    <tr>
+                        <td class="option">{{ step2FormState?.currentConfig }}</td>
+                        <td>{{ step2FormState?.selectedConfig?.price | currencyFormat}}</td>
+                    </tr>
+                }
+
+                @if (step2FormState?.selectedConfig?.range) {
+                    <tr>
+                        <td>Range - {{ step2FormState?.selectedConfig?.range }} miles - Max speed: {{ step2FormState?.selectedConfig?.speed }}</td>
+                    </tr>
+                }
+
+                @if (step1FormState?.selectedColor?.description) {
+                    <tr>
+                        <td class="option">{{ step1FormState?.selectedColor?.description }}</td>
+                        <td> {{ step1FormState?.selectedColor?.price | currencyFormat}}</td>
+                    </tr>
+                }
+
+                @if (step2FormState?.towHitch) {
+                    <tr>
+                        <td class="option">Tow Hitch Package</td>
+                        <td>{{ OPTION_UPSELL_PRICE | currencyFormat }}</td>
+                    </tr>
+                }
+
+                @if (step2FormState?.yoke) {
+                    <tr>
+                        <td class="option">Yoke Package</td>
+                        <td>{{ OPTION_UPSELL_PRICE | currencyFormat }}</td>
+                    </tr>
+                }
+
+                @if (totalPrice) {
+                    <tr class="bordered">
+                        <td class="total">total cost</td>
+                        <td>{{ totalPrice | currencyFormat }}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <app-image [path]="step1FormState?.imagePathGenerated" [alt]="step1FormState?.selectedModel?.description"/>
+}
+

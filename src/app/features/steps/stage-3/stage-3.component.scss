@@ -1,0 +1,57 @@
+@import "../../../styles/scss/mixins/gradient";
+@import "../../../styles/scss/variables";
+
+table,
+tbody,
+tr,
+td {
+  border: none;
+}
+
+table {
+  width: 100%;
+  overflow-x: hidden;
+
+  td {
+    padding: 3px;
+  }
+
+  .option {
+    font-weight: $option-font-weight;
+    font-size: $option-font-size;
+  }
+
+  .bordered {
+    position: relative;
+    padding: 8px 0;
+
+    &::before {
+      @include border-gradient(top);
+    }
+
+    &::after {
+      @include border-gradient(bottom);
+    }
+  }
+
+  .total {
+    font-weight: $option-font-weight;
+    font-size: $option-font-size;
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  table tr, table.horizontal tr {
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 5px;
+  }
+
+  td {
+    text-align: left;
+  }
+}
+

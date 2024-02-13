@@ -1,0 +1,31 @@
+<nav>
+    <ul>
+        <li>
+            <a routerLink="/stage-1"
+               routerLinkActive="active"
+               ariaCurrentWhenActive="step"
+               id="step1">
+                Stage 1
+            </a>
+        </li>
+
+        <li>
+            <a [routerLink]="isStep1Valid ? '/stage-2': ''"
+               [ngClass]="{'disabled': !isStep1Valid}"
+               routerLinkActive="active"
+               ariaCurrentWhenActive="step"
+               id="step2">
+               Stage 2
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="isStep2Valid ? '/stage-3': '/stage-2'"
+               [ngClass]="{'disabled': !isStep2Valid}"
+               routerLinkActive="active"
+               ariaCurrentWhenActive="step"
+               id="step3">
+               Stage 3
+            </a>
+        </li>
+    </ul>
+</nav>

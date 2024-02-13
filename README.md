@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
 
+Deployed on Netlify => [Website](https://statuesque-kitten-bb7caa.netlify.app/step-1)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b0c6ba1e-8f21-4e9a-a68d-1077d2128097/deploy-status)](https://app.netlify.com/sites/statuesque-kitten-bb7caa/deploys)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

@@ -1,0 +1,32 @@
+<h1>Stage 1: Choose your Model and color</h1>
+
+<form [formGroup]="step1Form">
+    <div class="stage-1-container">
+        <div class="tesla-models">
+            <label for="modelSelect">Model:</label>
+            <select name="models" id="modelSelect" formControlName="currentModel" (change)="onModelChange($event)">
+                @if (teslaModelInformation?.length) {
+                    <option value="" selected>Choose...</option>
+                    @for (option of teslaModelInformation; track option.code) {
+                        <option [value]="option.description">{{ option?.description }}</option>
+                    }
+                }
+            </select>
+        </div>
+
+        @if (selectedModel?.colors?.length) {
+            <div class="tesla-colors" [formGroup]="step1Form">
+                <label for="colorSelect">Color:</label>
+                <select name="colors" id="colorSelect" formControlName="currentColor" (change)="onColorChange($event)">
+                    <option value="" selected>Choose...</option>
+                    @for (color of selectedModel?.colors; track color.code) {
+                        <option [value]="color.code">{{ color?.description }}</option>
+                    }
+                </select>
+            </div>
+        }
+    </div>
+
+    <app-image [path]="step1Form.get('imagePathGenerated')?.value" [alt]="step1FormState?.selectedModel?.description"/>
+</form>
+
